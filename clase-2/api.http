@@ -1,0 +1,14 @@
+### Hace un metodo get a la api
+GET http://localhost:1234/pokemon/ditto
+
+### Hace un metodo post a la api
+POST http://localhost:1234/pokemon
+Content-Type: application/json
+
+{
+    "name":"ditto",
+    "type":"normal",
+    "moves": [
+        "transform"
+    ]
+}

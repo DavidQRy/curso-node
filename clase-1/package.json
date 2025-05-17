@@ -1,0 +1,35 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "Curso de nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidQRy/curso-node.git"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "nodejs",
+    "DavidQRy"
+  ],
+  "author": "David Quintero Ramírez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidQRy/curso-node/issues"
+  },
+  "homepage": "https://github.com/DavidQRy/curso-node#readme",
+  "dependencies": {
+    "picocolors": "1.1.1",
+    "react": "^19.1.0"
+  },
+  "devDependencies": {
+    "standard": "17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
