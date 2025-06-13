@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronar API rest</title>
+    <style>
+        img {
+            height: auto;
+            width: 320px;
+            border: 1px solid gray ;
+        }
+        main {
+            display: flex;
+            gap: 8px;
+        }
+
+        article{
+            padding: 5px;
+            margin: 2px;
+            background-color: black;
+            color: azure;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+    <script type="module">
+        fetch('http://localhost:1234/movies')
+            .then(res => res.json())
+            .then(movies => {
+                const html = movies.map(
+                    movie => {
+                        return `
+                             <article data-id="${movie.id}">
+                                <h2>${movie.title}</h2>
+                                <img src="${movie.poster} alt="${movie.title}">
+                                <p>${movie.director}</p>
+                                <button>Eliminar</button>
+                            </article>
+                        `
+                    }).join('')
+                    document.querySelector('main').innerHTML = html
+                    document.addEventListener('click', (e) => {
+                        if (e.target.tagName === 'BUTTON') {
+                            const id = e.target.closest('article').dataset.id
+                            fetch(`http://localhost:1234/movies/${id}`, {
+                                method: 'DELETE'
+                            })
+                            .then(res => res.ok)
+                            .then(() => {
+                                e.target.closest('article').remove()
+                            })
+                        }
+                    })
+            })
+
+    </script>
+</head>
+<body>
+    <main></main>
+</body>
+</html>
