@@ -1,4 +1,4 @@
-import { readJSON } from '../utils/require.js'
+import { readJSON } from '../../utils/require.js'
 import { randomUUID } from 'crypto'
 const movies = readJSON('../movies.json')
 
@@ -8,14 +8,14 @@ export class MovieModel {
     return movies
   }
 
-  static getID = async ({ id }) => {
+  static getById = async ({ id }) => {
     return movies.find(movie => movie.id === id)
   }
 
-  static create = async (result) => {
+  static create = async (input) => {
     const newMovie = {
       id: randomUUID(), // uuuid
-      ...result.data
+      ...input
     }
     // Esto no sería REST, porque estamos guardando
     // El estado de la aplicacion

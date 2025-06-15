@@ -15,7 +15,7 @@ Content-Type: application/json
   "sql": "SELECT * FROM users",
   "title": "The Godfather",
   "year": 1975,
-  "rate": 2,
+  "rate": 4,
   "director": "Francis Ford Coppola",
   "duration": 175,
   "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
@@ -27,8 +27,7 @@ Content-Type: application/json
 
 
 ### Eliminar una pelicula 
-DELETE  http://localhost:1234/movies/9cd8c480-4739-11f0-8b2e-bceca01cd900
-
+DELETE http://localhost:1234/movies/50243946-497a-11f0-bd2b-bceca01cd900
 
 ### Crear una pelicula
 
@@ -37,5 +36,5 @@ Content-Type: application/json
 
 {
   "year": 1994,
-  "rate": 9.4
+  "rate": 9.5
 }

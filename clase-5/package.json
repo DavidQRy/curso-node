@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start:mysql": "node --watch server-with-mysql.js",
+    "start:local-file-systems": "node --watch server-with-local-file-systems.js",
     "dev:1": "node --watch app"
   },
   "keywords": [],

@@ -1,23 +1,26 @@
 import express, { json } from 'express'
-import { moviesRouter } from './routes/movies.js'
+import { createMovieRouter } from './routes/movies.js'
+
 import { corsMiddleware } from './middleware/cors.js'
 
-const PORT = process.env.PORT ?? 1234
+export const createApp = ({ MovieModel }) => {
+  const PORT = process.env.PORT ?? 1234
 
-const app = express()
-app.disable('x-powered-by') // deshanilita el header x-porwered-by: express
+  const app = express()
+  app.disable('x-powered-by') // deshanilita el header x-porwered-by: expres
 
-app.use(json())
-app.use(corsMiddleware())
-app.get('/', (req, res) => {
-  res.json({ menssage: 'hola mundo' })
-})
+  app.use(json())
+  app.use(corsMiddleware())
+  app.get('/', (req, res) => {
+    res.json({ menssage: 'hola mundo' })
+  })
 
-app.use('/movies', moviesRouter)
+  app.use('/movies', createMovieRouter({ movieModel: MovieModel }))
 
-app.listen(PORT, () => {
-  console.log(`server listening on port http://localhost:${PORT}`)
-})
+  app.listen(PORT, () => {
+    console.log(`server listening on port http://localhost:${PORT}`)
+  })
+}
 
 // El import de el futuro es
 // import movies from './movies.json' with {type: 'json'}

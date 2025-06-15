@@ -170,7 +170,7 @@ export class MovieModel {
     }
   }
 
-  static async delete ({ id }) {
+  static async deleteMovie ({ id }) {
     try {
     // Verificar si la película existe
       const [movie] = await connection.query(`
