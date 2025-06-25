@@ -1,7 +1,17 @@
+### Iniciar sesion
 POST http://localhost:3000/login
-
 Content-Type: application/json
 
 {
-    "user": "David"
+    "username": "David1",
+    "password": "123456d"
+}
+
+### Crear el usuario y contraseña
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "David1",
+    "password": "123456d"
 }
