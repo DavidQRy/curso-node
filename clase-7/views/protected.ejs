@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Protegida</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .protected-content { background-color: #e6ffe6; padding: 20px; border-radius: 5px; }
+        button { padding: 8px 16px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Área Protegida</h1>
+    
+    <div class="protected-content">
+        <h2>Bienvenido, <%= user.username %>!</h2>
+        <p>Esta es un área protegida que solo pueden ver usuarios autenticados.</p>
+        <p>Tu ID de usuario es: <%= user.id %></p>
+        
+        <button onclick="window.location.href='/'">Volver al Inicio</button>
+        <button onclick="logout()">Cerrar Sesión</button>
+    </div>
+
+    <script>
+        async function logout() {
+            try {
+                const response = await fetch('/logout', { method: 'POST' });
+                if (response.ok) {
+                    window.location.href = '/';
+                }
+            } catch (err) {
+                alert('Error al cerrar sesión');
+            }
+        }
+    </script>
+</body>
+</html>
